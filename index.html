@@ -154,6 +154,42 @@
     #cart-items li {
       font-size: 1.2em;
       padding: 5px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .remove-btn {
+      background-color: #ff0000;
+      color: white;
+      padding: 5px 10px;
+      border: none;
+      font-size: 1em;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .remove-btn:hover {
+      background-color: #cc0000;
+    }
+
+    .about-us {
+      padding: 40px;
+      background-color: #fff;
+      margin-top: 40px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    .about-us h2 {
+      font-size: 2em;
+      color: #003366;
+      margin-bottom: 20px;
+    }
+
+    .about-us p {
+      font-size: 1.2em;
+      color: #555;
     }
   </style>
 </head>
@@ -167,7 +203,7 @@
   <nav>
     <a href="#">Inicio</a>
     <a href="#">Productos</a>
-    <a href="#">Nosotros</a>
+    <a href="#about-us">Nosotros</a>
     <a href="#">Contacto</a>
   </nav>
 
@@ -200,6 +236,12 @@
     <button id="checkout-button">Pagar con tarjeta</button>
   </div>
 
+  <!-- Sección sobre nosotros -->
+  <section id="about-us" class="about-us">
+    <h2>Sobre nosotros</h2>
+    <p>Carttoner es una tienda especializada en la venta de cartuchos de tinta reciclados de alta calidad. Nos dedicamos a ofrecer productos ecológicos y económicos que ayudan a reducir el impacto ambiental de los cartuchos desechables. Nuestro objetivo es hacer que nuestros clientes ahorren dinero mientras cuidan el planeta. Con más de 10 años de experiencia en el sector, garantizamos un excelente servicio y productos a precios competitivos.</p>
+  </section>
+
   <script src="https://js.stripe.com/v3/"></script>
   <script>
     let cart = [];
@@ -212,9 +254,9 @@
     function renderCart() {
       const cartItemsContainer = document.getElementById('cart-items');
       cartItemsContainer.innerHTML = '';
-      cart.forEach(item => {
+      cart.forEach((item, index) => {
         const li = document.createElement('li');
-        li.textContent = `${item.name} - ${item.price.toFixed(2)} €`;
+        li.innerHTML = `${item.name} - ${item.price.toFixed(2)} € <button class="remove-btn" onclick="removeFromCart(${index})">Eliminar</button>`;
         cartItemsContainer.appendChild(li);
       });
       updateTotal();
@@ -223,6 +265,11 @@
     function updateTotal() {
       const total = cart.reduce((sum, item) => sum + item.price, 0);
       document.getElementById('total').textContent = total.toFixed(2) + ' €';
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      renderCart();
     }
 
     // Configurar el botón de Stripe Checkout
