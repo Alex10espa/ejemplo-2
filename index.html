@@ -4,31 +4,183 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tienda de Cartuchos Reciclados</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f5f5f5; }
-    header { background: #333; color: white; padding: 10px; text-align: center; }
-    .product { background: white; margin: 10px; padding: 10px; border-radius: 5px; }
-    .products { display: flex; flex-wrap: wrap; justify-content: center; }
-    button { background: #333; color: white; border: none; padding: 5px 10px; cursor: pointer; }
-    #cart { background: #fff; padding: 10px; margin: 10px; border-radius: 5px; }
-    #paypal-button-container { margin-top: 20px; text-align: center; }
+    /* Reset de márgenes y padding */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Diseño global */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      margin-bottom: 0.5em;
+    }
+
+    header p {
+      font-size: 1.2em;
+    }
+
+    nav {
+      background-color: #fff;
+      padding: 10px 0;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    nav a {
+      color: #003366;
+      margin: 0 20px;
+      font-size: 1.1em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    nav a:hover {
+      color: #ff6600;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .product {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .product img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .product h3 {
+      font-size: 1.6em;
+      margin-bottom: 10px;
+      color: #003366;
+    }
+
+    .product p {
+      font-size: 1.1em;
+      color: #555;
+    }
+
+    .product button {
+      background-color: #ff6600;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .product button:hover {
+      background-color: #e65c00;
+    }
+
+    #cart {
+      background-color: #fff;
+      padding: 20px;
+      margin: 20px auto;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    #cart h2 {
+      font-size: 1.8em;
+      color: #003366;
+    }
+
+    #stripe-button-container {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    #checkout-button {
+      background-color: #003366;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.4em;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #checkout-button:hover {
+      background-color: #ff6600;
+    }
+
+    /* Carrito de compras */
+    #cart ul {
+      list-style-type: none;
+      margin-bottom: 10px;
+    }
+
+    #cart-items li {
+      font-size: 1.2em;
+      padding: 5px 0;
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Cartuchos Reciclados</h1>
+    <h1>Tienda de Cartuchos Reciclados</h1>
     <p>¡Cuida el planeta y ahorra dinero!</p>
   </header>
 
+  <nav>
+    <a href="#">Inicio</a>
+    <a href="#">Productos</a>
+    <a href="#">Nosotros</a>
+    <a href="#">Contacto</a>
+  </nav>
+
   <section class="products">
     <div class="product">
+      <img src="https://via.placeholder.com/300x200" alt="Cartucho HP 305XL">
       <h3>Cartucho HP 305XL Negro</h3>
       <p>Compatibilidad: HP DeskJet 2710, 2720, 2721</p>
       <p>Precio: 9.99 €</p>
       <button onclick="addToCart('HP 305XL Negro', 9.99)">Añadir al carrito</button>
     </div>
     <div class="product">
+      <img src="https://via.placeholder.com/300x200" alt="Cartucho Canon PG-545">
       <h3>Cartucho Canon PG-545</h3>
       <p>Compatibilidad: Canon MG2550, MG2450</p>
       <p>Precio: 8.50 €</p>
@@ -42,12 +194,13 @@
     <p>Total: <span id="total">0.00 €</span></p>
   </section>
 
-  <!-- PayPal Button Section -->
-  <div id="paypal-button-container">
+  <!-- Stripe Checkout Button Section -->
+  <div id="stripe-button-container">
     <h3>Finaliza tu pedido</h3>
-    <div id="paypal-button"></div>
+    <button id="checkout-button">Pagar con tarjeta</button>
   </div>
 
+  <script src="https://js.stripe.com/v3/"></script>
   <script>
     let cart = [];
     
@@ -71,44 +224,43 @@
       document.getElementById('total').textContent = total.toFixed(2) + ' €';
     }
 
-    // Cargar el botón de PayPal
-    paypal.Buttons({
-      createOrder: function(data, actions) {
-        // Crear el pedido en PayPal
-        return actions.order.create({
-          purchase_units: [{
-            amount: {
-              value: calculateTotal() // Total de la compra
-            }
-          }]
-        });
-      },
-      onApprove: function(data, actions) {
-        // Cuando el pago sea aprobado, capturamos la transacción
-        return actions.order.capture().then(function(details) {
-          alert('Pago realizado con éxito por ' + details.payer.name.given_name);
-          cart = []; // Limpiar carrito
-          updateCart(); // Actualizar carrito visualmente
-        });
-      },
-      onError: function(err) {
-        console.error("Error en el pago: ", err);
-        alert('Hubo un error con el pago. Por favor, inténtalo de nuevo.');
-      }
-    }).render('#paypal-button'); // Renderizar el botón de PayPal
+    // Configurar el botón de Stripe Checkout
+    const stripe = Stripe('YOUR_PUBLIC_STRIPE_KEY'); // Reemplaza con tu clave pública de Stripe
 
-    // Función para calcular el total de la compra
+    document.getElementById('checkout-button').addEventListener('click', () => {
+      const totalAmount = calculateTotal(); // Total de la compra
+      fetch('/create-checkout-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ total: totalAmount }),
+      })
+      .then((response) => response.json())
+      .then((sessionId) => {
+        // Redirigir al usuario a Stripe Checkout
+        return stripe.redirectToCheckout({ sessionId });
+      })
+      .then((result) => {
+        if (result.error) {
+          alert(result.error.message);
+        }
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        alert('Hubo un error al intentar procesar el pago.');
+      });
+    });
+
+    // Función para calcular el total
     function calculateTotal() {
       let total = 0;
       cart.forEach(item => {
         total += item.price;
       });
-      return total.toFixed(2);
+      return total * 100; // Convertir a centavos, ya que Stripe maneja los montos en centavos
     }
   </script>
-
-  <!-- Cargar el script de PayPal -->
-  <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=EUR"></script>
 
 </body>
 </html>
