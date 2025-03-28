@@ -1,330 +1,164 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tienda de Cartuchos Reciclados</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    /* Reset de márgenes y padding */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<!doctype html> 
+<html lang="es-ES">
+    <head>
+        <meta charset="utf-8">
+        <title>CARTTONER, venta y reciclaje de toner y consumibles de impresión</title>
+        <meta name="description" content="Gestión de residuos de impresión y venta de toner original o reciclado ecológico"/>
+        <meta name="keywords" content="reciclaje de toner y cartuchos de tinta de impresión , toner ecológico , venta de toner reciclado y original , gestión de residuos de impresión" />
+        <link rel="Shortcut Icon" type="image/ico" href="../favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">
+        <link href="../css/themify-icons.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="../css/flexslider.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="../css/theme-nature.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="../css/custom.css" rel="stylesheet" type="text/css" media="all" />
+    </head>
 
-    /* Diseño global */
-    body {
-      font-family: 'Roboto', sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
-    }
+    <body class="scroll-assist">
+        <div class="nav-container">
+            <nav>
+                <div class="nav-bar">
+                    <div class="module left">
+                        <a href="../index.html">
+                            <img class="logo logo-light" alt="Logo Carttoner blanco y negro" src="../img/logo_carttoner_trans_blank.png">
+                            <img class="logo logo-dark" alt="Logo Carttoner Color" src="../img/logo_carttoner_trans_color.png">
+                        </a>
+                    </div>
+                    <div class="module-group right">
+                        <div class="module left">
+                            <ul class="menu">
+                                <li><a href="#inici" class="inner-link" target="_self">Inicio</a></li>
+                                <li><a href="#carttoner" class="inner-link" target="_self">Carttoner</a></li>
+                                <li><a href="#certificaciones" class="inner-link" target="_self">Certificaciones</a></li>
+                                <li><a href="#contacto" class="inner-link" target="_self">Contacto</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
 
-    header {
-      background-color: #003366;
-      color: white;
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
+        <div class="main-container">
+            <!-- Sección de inicio con imagen de naturaleza y texto grande -->
+            <a id="inici" class="in-page-link"></a>
+            <section class="cover fullscreen image-slider slider-all-controls controls-inside parallax mb-xs-40">
+                <ul class="slides">
+                    <li class="overlay image-bg">
+                        <div class="background-image-holder">
+                            <img alt="image" class="background-image" src="../img/nature-banner.jpg"> <!-- Aquí va la imagen de naturaleza -->
+                        </div>
+                        <div class="container v-align-transform">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-8">
+                                    <h1 class="mb40 mb-xs-16 large">Sostenibilidad, también en la impresión.</h1>
+                                    <h6 class="uppercase mb16">UTILIZA TONER ORIGINAL O RECICLADO ECOLÓGICO</h6>
+                                    <p class="lead mb40">
+                                        Si te gusta cuidar tu entorno, ahora puedes hacerlo también cuando imprimes.
+                                    </p>
+                                    <a class="btn btn-lg inner-link" href="#carttoner" target="_self">MÁS INFORMACIÓN</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </section>
 
-    header h1 {
-      font-size: 2.5em;
-      margin-bottom: 0.5em;
-    }
+            <!-- Sección Carttoner -->
+            <a id="carttoner" class="in-page-link"></a>
+            <section class="bg-dark">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-10 col-sm-offset-1 text-center">
+                            <h3 class="color-primary mb40 mb-xs-24 uppercase">Carttoner</h3>
+                            <p class="lead">
+                                Venta de toner ecológico y original, especialistas en recogida y reciclaje de toners y cartuchos de impresora para la gestión de residuos de impresión.
+                            </p>
+                            <p class="lead">
+                                Nuestra vocación en colaborar en la sostenibilidad del medio ambiente ofreciendo a las empresas una solución ecológica completa para la gestión de suministros y residuos de impresión.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-    header p {
-      font-size: 1.2em;
-    }
+            <!-- Sección Certificaciones -->
+            <a id="certificaciones" class="in-page-link"></a>
+            <section>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 text-center">
+                            <h3 class="uppercase mb16">Certificaciones de reciclaje y distribución de consumibles de impresión</h3>
+                            <p class="lead mb80">
+                                Carttoner Sistemas, S.L., está homologada por la Generalitat de Catalunya como gestora de residuos especializada en toner y cartuchos.
+                                <br>
+                                Dicha certificación está identificada con el núm. E-140.96, así como la autorización para su transporte, con núm. T-1311.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row mb64 mb-xs-32">
+                        <div class="col-sm-6">
+                            <div class="image-caption cast-shadow mb-xs-32">
+                                <img alt="Acreditación Generalitat de Catalunya" src="../img/acreditacion_generalitat.png"> <!-- Aquí va la imagen del certificado -->
+                                <div class="caption">
+                                    <p>
+                                        <strong>Nota:</strong> para visualizar el certificado haga clic aquí
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="image-caption cast-shadow mb-xs-32">
+                                <img alt="Acreditación Hewlett Packard" src="../img/acreditacion_hp.png"> <!-- Aquí va la imagen del certificado HP -->
+                                <div class="caption">
+                                    <p>
+                                        <strong>Nota:</strong> para visualizar el certificado haga clic aquí
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-    nav {
-      background-color: #fff;
-      padding: 10px 0;
-      text-align: center;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    }
+            <!-- Sección de contacto -->
+            <a id="contacto" class="in-page-link"></a>
+            <section>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 text-center">
+                            <h3 class="uppercase mb16">CONTACTO</h3>
+                            <p class="lead mb20">Contacta con Carttoner y, sin compromiso alguno, te informaremos sobre cómo realizar una gestión ecológica completa de la impresión, tanto para adquirir toner y tinta original como para gestionar el reciclado ecológico de los toners y cartuchos de impresión y sus residuos.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
 
-    nav a {
-      color: #003366;
-      margin: 0 20px;
-      font-size: 1.1em;
-      text-decoration: none;
-      text-transform: uppercase;
-    }
+        <footer class="footer-2 bg-dark text-center-xs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <img class="image-xxs fade-half" alt="Logo Carttoner Sistemas Blanc" src="../img/logo_carttoner_trans_blank.png">
+                    </div>
+                    <div class="col-sm-4 text-center">
+                        <span class="fade-half">
+                            &copy; Copyright 2025 CartToner Sistemas, s.l.</span>
+                    </div>
+                    <div class="col-sm-4 text-right text-center-xs">
+                        <ul class="list-inline social-list">
+                            <li><a target="_blank" href="https://google.com/+CarttonerCat"><i class="ti ti-google"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
-    nav a:hover {
-      color: #ff6600;
-    }
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 20px;
-      padding: 40px;
-    }
-
-    .product {
-      background-color: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .product:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    }
-
-    .product img {
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 15px;
-    }
-
-    .product h3 {
-      font-size: 1.6em;
-      margin-bottom: 10px;
-      color: #003366;
-    }
-
-    .product p {
-      font-size: 1.1em;
-      color: #555;
-    }
-
-    .product button {
-      background-color: #ff6600;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      font-size: 1.2em;
-      border-radius: 5px;
-      cursor: pointer;
-      width: 100%;
-      margin-top: 10px;
-      transition: background-color 0.3s ease;
-    }
-
-    .product button:hover {
-      background-color: #e65c00;
-    }
-
-    #cart {
-      background-color: #fff;
-      padding: 20px;
-      margin: 20px auto;
-      width: 90%;
-      max-width: 400px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-    }
-
-    #cart h2 {
-      font-size: 1.8em;
-      color: #003366;
-    }
-
-    #stripe-button-container {
-      margin-top: 20px;
-      text-align: center;
-    }
-
-    #checkout-button {
-      background-color: #003366;
-      color: white;
-      border: none;
-      padding: 15px 30px;
-      font-size: 1.4em;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    #checkout-button:hover {
-      background-color: #ff6600;
-    }
-
-    /* Carrito de compras */
-    #cart ul {
-      list-style-type: none;
-      margin-bottom: 10px;
-    }
-
-    #cart-items li {
-      font-size: 1.2em;
-      padding: 5px 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .remove-btn {
-      background-color: #ff0000;
-      color: white;
-      padding: 5px 10px;
-      border: none;
-      font-size: 1em;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .remove-btn:hover {
-      background-color: #cc0000;
-    }
-
-    .about-us {
-      padding: 40px;
-      background-color: #fff;
-      margin-top: 40px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-    }
-
-    .about-us h2 {
-      font-size: 2em;
-      color: #003366;
-      margin-bottom: 20px;
-    }
-
-    .about-us p {
-      font-size: 1.2em;
-      color: #555;
-    }
-
-    #contacto {
-      padding: 40px;
-      background-color: #fff;
-      margin-top: 40px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-    }
-
-    #contacto h2 {
-      font-size: 2em;
-      color: #003366;
-      margin-bottom: 20px;
-    }
-
-    #contacto p {
-      font-size: 1.2em;
-      color: #555;
-    }
-  </style>
-</head>
-<body>
-
-  <header id="inicio">
-    <h1>Tienda de Cartuchos Reciclados</h1>
-    <p>¡Cuida el planeta y ahorra dinero!</p>
-  </header>
-
-  <nav>
-    <a href="#inicio">Inicio</a>
-    <a href="#productos">Productos</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
-
-  <section id="productos" class="products">
-    <div class="product">
-      <img src="https://via.placeholder.com/300x200" alt="Cartucho HP 305XL">
-      <h3>Cartucho HP 305XL Negro</h3>
-      <p>Compatibilidad: HP DeskJet 2710, 2720, 2721</p>
-      <p>Precio: 9.99 €</p>
-      <button onclick="addToCart('HP 305XL Negro', 9.99)">Añadir al carrito</button>
-    </div>
-    <div class="product">
-      <img src="https://via.placeholder.com/300x200" alt="Cartucho Canon PG-545">
-      <h3>Cartucho Canon PG-545</h3>
-      <p>Compatibilidad: Canon MG2550, MG2450</p>
-      <p>Precio: 8.50 €</p>
-      <button onclick="addToCart('Canon PG-545', 8.50)">Añadir al carrito</button>
-    </div>
-  </section>
-
-  <section id="cart">
-    <h2>Carrito</h2>
-    <ul id="cart-items"></ul>
-    <p>Total: <span id="total">0.00 €</span></p>
-  </section>
-
-  <div id="stripe-button-container">
-    <h3>Finaliza tu pedido</h3>
-    <button id="checkout-button">Pagar con tarjeta</button>
-  </div>
-
-  <section id="about-us" class="about-us">
-    <h2>Sobre nosotros</h2>
-    <p>Carttoner es una tienda especializada en la venta de cartuchos de tinta reciclados de alta calidad. Nos dedicamos a ofrecer productos ecológicos y económicos que ayudan a reducir el impacto ambiental de los cartuchos desechables. Nuestro objetivo es hacer que nuestros clientes ahorren dinero mientras cuidan el planeta. Con más de 10 años de experiencia en el sector, garantizamos un excelente servicio y productos a precios competitivos.</p>
-  </section>
-
-  <!-- Información de contacto -->
-  <section id="contacto">
-    <h2>Contacto</h2>
-    <p>Si tienes preguntas o necesitas más información, contáctanos por cualquiera de los siguientes medios:</p>
-    <p>Email: <strong>contacto@carttoner.com</strong></p>
-    <p>Teléfono: <strong>(+34) 900 123 456</strong></p>
-    <p>Dirección: Calle Ficticia, 123, Madrid, España</p>
-  </section>
-
-  <script src="https://js.stripe.com/v3/"></script>
-  <script>
-    let cart = [];
-
-    function addToCart(productName, productPrice) {
-      cart.push({ name: productName, price: productPrice });
-      renderCart();
-    }
-
-    function renderCart() {
-      const cartItemsContainer = document.getElementById('cart-items');
-      cartItemsContainer.innerHTML = '';
-      cart.forEach((item, index) => {
-        const li = document.createElement('li');
-        li.innerHTML = `${item.name} - ${item.price.toFixed(2)} € <button class="remove-btn" onclick="removeFromCart(${index})">Eliminar</button>`;
-        cartItemsContainer.appendChild(li);
-      });
-      updateTotal();
-    }
-
-    function updateTotal() {
-      const total = cart.reduce((sum, item) => sum + item.price, 0);
-      document.getElementById('total').textContent = total.toFixed(2) + ' €';
-    }
-
-    function removeFromCart(index) {
-      cart.splice(index, 1);
-      renderCart();
-    }
-
-    const stripe = Stripe('YOUR_PUBLIC_STRIPE_KEY'); // Reemplaza con tu clave pública de Stripe
-
-    document.getElementById('checkout-button').addEventListener('click', () => {
-      const totalAmount = calculateTotal();
-      fetch('/create-checkout-session', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ total: totalAmount }),
-      })
-      .then((response) => response.json())
-      .then((sessionId) => {
-        return stripe.redirectToCheckout({ sessionId });
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-        alert('Hubo un error al intentar procesar el pago.');
-      });
-    });
-
-    function calculateTotal() {
-      let total = 0;
-      cart.forEach(item => {
-        total += item.price;
-      });
-      return total * 100; // Stripe maneja los montos en centavos
-    }
-  </script>
-</body>
+        <script src="../js/jquery.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/flexslider.min.js"></script>
+        <script src="../js/smooth-scroll.min.js"></script>
+        <script src="../js/parallax.js"></script>
+        <script src="../js/scripts.js"></script>
+    </body>
 </html>
