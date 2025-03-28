@@ -1,7 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tienda de Cartuchos Reciclados</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
@@ -184,13 +181,7 @@
       <h3>Cartucho Canon PG-545</h3>
       <p>Compatibilidad: Canon MG2550, MG2450</p>
       <p>Precio: 8.50 €</p>
-      <button onclick="addToCart('Canon PG-545', 8.50)">Añadir al carrito</button>
-    </div>
-  </section>
-
-  <section id="cart">
-    <h2>Carrito</h2>
-    <ul id="cart-items"></ul>
+	@@ -42,12 +194,13 @@ <h2>Carrito</h2>
     <p>Total: <span id="total">0.00 €</span></p>
   </section>
 
@@ -203,24 +194,8 @@
   <script src="https://js.stripe.com/v3/"></script>
   <script>
     let cart = [];
-    
-    // Función para agregar productos al carrito
-    function addToCart(product, price) {
-      cart.push({ product, price });
-      updateCart();
-    }
 
-    // Función para actualizar el carrito
-    function updateCart() {
-      const cartItems = document.getElementById('cart-items');
-      cartItems.innerHTML = '';
-      let total = 0;
-      cart.forEach(item => {
-        total += item.price;
-        const li = document.createElement('li');
-        li.textContent = `${item.product} - ${item.price.toFixed(2)} €`;
-        cartItems.appendChild(li);
-      });
+	@@ -71,44 +224,43 @@ <h3>Finaliza tu pedido</h3>
       document.getElementById('total').textContent = total.toFixed(2) + ' €';
     }
 
