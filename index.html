@@ -1,4 +1,7 @@
-<meta charset="UTF-8">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tienda de Cartuchos Reciclados</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
@@ -181,7 +184,13 @@
       <h3>Cartucho Canon PG-545</h3>
       <p>Compatibilidad: Canon MG2550, MG2450</p>
       <p>Precio: 8.50 €</p>
-	@@ -42,12 +194,13 @@ <h2>Carrito</h2>
+      <button onclick="addToCart('Canon PG-545', 8.50)">Añadir al carrito</button>
+    </div>
+  </section>
+
+  <section id="cart">
+    <h2>Carrito</h2>
+    <ul id="cart-items"></ul>
     <p>Total: <span id="total">0.00 €</span></p>
   </section>
 
@@ -195,7 +204,24 @@
   <script>
     let cart = [];
 
-	@@ -71,44 +224,43 @@ <h3>Finaliza tu pedido</h3>
+    function addToCart(productName, productPrice) {
+      cart.push({ name: productName, price: productPrice });
+      renderCart();
+    }
+
+    function renderCart() {
+      const cartItemsContainer = document.getElementById('cart-items');
+      cartItemsContainer.innerHTML = '';
+      cart.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = `${item.name} - ${item.price.toFixed(2)} €`;
+        cartItemsContainer.appendChild(li);
+      });
+      updateTotal();
+    }
+
+    function updateTotal() {
+      const total = cart.reduce((sum, item) => sum + item.price, 0);
       document.getElementById('total').textContent = total.toFixed(2) + ' €';
     }
 
