@@ -9,11 +9,6 @@
         body {
             font-family: 'Open Sans', sans-serif;
         }
-        .navbar-brand strong {
-            color: #6ba539;
-            font-weight: bold;
-            font-size: 18px;
-        }
         .product-card {
             background: #fff;
             border-radius: 10px;
@@ -73,34 +68,8 @@
 </head>
 <body>
 
-<!-- Barra de navegación -->
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">
-        <img alt="Carttoner" src="img/logo.png" style="height:30px; display:inline;">
-        <strong>arttoner</strong>
-      </a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li><a href="#inicio">Inicio</a></li>
-      <li><a href="#carttoner">Carttoner</a></li>
-      <li><a href="#certificaciones">Certificaciones</a></li>
-      <li><a href="#servicios">Servicios</a></li>
-      <li><a href="#productos">Tienda</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
-    <form class="navbar-form navbar-right" role="search" onsubmit="buscarProducto(event)">
-      <div class="form-group">
-        <input type="text" class="form-control" id="busqueda" placeholder="Buscar productos...">
-      </div>
-      <button type="submit" class="btn btn-default">Buscar</button>
-    </form>
-  </div>
-</nav>
-
 <!-- INICIO -->
-<section id="inicio" class="jumbotron text-center" style="background-image: url('img/fondo-naturaleza.jpg'); background-size: cover; color: white;">
+<section class="jumbotron text-center" style="background-image: url('img/fondo-naturaleza.jpg'); background-size: cover; color: white;">
     <div class="container">
         <h1 class="display-4">Sostenibilidad, también en la impresión.</h1>
         <p class="lead">Utiliza toner original o reciclado ecológico. Si te gusta cuidar tu entorno, ahora puedes hacerlo también cuando imprimes.</p>
@@ -180,15 +149,6 @@
     </div>
 </section>
 
-<!-- CONTACTO -->
-<section id="contacto" class="container text-center" style="margin: 60px 0;">
-    <h2 class="section-title">Contacto</h2>
-    <p>¿Tienes dudas o quieres hacer un pedido personalizado? Contáctanos directamente por email o teléfono.</p>
-    <p><strong>Email:</strong> carttoner@carttoner.cat</p>
-    <p><strong>Teléfono:</strong> 933 818 267</p>
-</section>
-
-<!-- Scripts -->
 <script>
 const productos = [
     { id: 1, nombre: "HP 302XL Negro Reciclado", precio: 10.60, imagen: "img/cartucho1.jpg" },
@@ -199,7 +159,6 @@ const productos = [
 
 function renderizarProductos() {
     const contenedor = document.getElementById('product-list');
-    contenedor.innerHTML = '';
     productos.forEach(p => {
         const div = document.createElement('div');
         div.className = "col-md-3 col-sm-6";
@@ -268,16 +227,6 @@ function finalizarPedido() {
     });
     mensaje += `%0ATotal: €${carrito.reduce((sum, p) => sum + p.precio * p.cantidad, 0).toFixed(2)}`;
     window.open(`https://wa.me/?text=${mensaje}`, '_blank');
-}
-
-function buscarProducto(event) {
-    event.preventDefault();
-    const query = document.getElementById('busqueda').value.toLowerCase();
-    const productos = document.querySelectorAll('#product-list .product-card');
-    productos.forEach(producto => {
-        const nombre = producto.querySelector('h5').textContent.toLowerCase();
-        producto.parentElement.style.display = nombre.includes(query) ? 'block' : 'none';
-    });
 }
 
 renderizarProductos();
