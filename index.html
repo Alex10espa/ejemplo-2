@@ -191,23 +191,41 @@
       font-size: 1.2em;
       color: #555;
     }
+
+    #contacto {
+      padding: 40px;
+      background-color: #fff;
+      margin-top: 40px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    #contacto h2 {
+      font-size: 2em;
+      color: #003366;
+      margin-bottom: 20px;
+    }
+
+    #contacto p {
+      font-size: 1.2em;
+      color: #555;
+    }
   </style>
 </head>
 <body>
 
-  <header>
+  <header id="inicio">
     <h1>Tienda de Cartuchos Reciclados</h1>
     <p>¡Cuida el planeta y ahorra dinero!</p>
   </header>
 
   <nav>
-    <a href="#">Inicio</a>
-    <a href="#">Productos</a>
-    <a href="#about-us">Nosotros</a>
-    <a href="#">Contacto</a>
+    <a href="#inicio">Inicio</a>
+    <a href="#productos">Productos</a>
+    <a href="#contacto">Contacto</a>
   </nav>
 
-  <section class="products">
+  <section id="productos" class="products">
     <div class="product">
       <img src="https://via.placeholder.com/300x200" alt="Cartucho HP 305XL">
       <h3>Cartucho HP 305XL Negro</h3>
@@ -230,16 +248,23 @@
     <p>Total: <span id="total">0.00 €</span></p>
   </section>
 
-  <!-- Stripe Checkout Button Section -->
   <div id="stripe-button-container">
     <h3>Finaliza tu pedido</h3>
     <button id="checkout-button">Pagar con tarjeta</button>
   </div>
 
-  <!-- Sección sobre nosotros -->
   <section id="about-us" class="about-us">
     <h2>Sobre nosotros</h2>
     <p>Carttoner es una tienda especializada en la venta de cartuchos de tinta reciclados de alta calidad. Nos dedicamos a ofrecer productos ecológicos y económicos que ayudan a reducir el impacto ambiental de los cartuchos desechables. Nuestro objetivo es hacer que nuestros clientes ahorren dinero mientras cuidan el planeta. Con más de 10 años de experiencia en el sector, garantizamos un excelente servicio y productos a precios competitivos.</p>
+  </section>
+
+  <!-- Información de contacto -->
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <p>Si tienes preguntas o necesitas más información, contáctanos por cualquiera de los siguientes medios:</p>
+    <p>Email: <strong>contacto@carttoner.com</strong></p>
+    <p>Teléfono: <strong>(+34) 900 123 456</strong></p>
+    <p>Dirección: Calle Ficticia, 123, Madrid, España</p>
   </section>
 
   <script src="https://js.stripe.com/v3/"></script>
@@ -272,11 +297,10 @@
       renderCart();
     }
 
-    // Configurar el botón de Stripe Checkout
     const stripe = Stripe('YOUR_PUBLIC_STRIPE_KEY'); // Reemplaza con tu clave pública de Stripe
 
     document.getElementById('checkout-button').addEventListener('click', () => {
-      const totalAmount = calculateTotal(); // Total de la compra
+      const totalAmount = calculateTotal();
       fetch('/create-checkout-session', {
         method: 'POST',
         headers: {
@@ -286,13 +310,7 @@
       })
       .then((response) => response.json())
       .then((sessionId) => {
-        // Redirigir al usuario a Stripe Checkout
         return stripe.redirectToCheckout({ sessionId });
-      })
-      .then((result) => {
-        if (result.error) {
-          alert(result.error.message);
-        }
       })
       .catch((error) => {
         console.error('Error:', error);
@@ -300,15 +318,13 @@
       });
     });
 
-    // Función para calcular el total
     function calculateTotal() {
       let total = 0;
       cart.forEach(item => {
         total += item.price;
       });
-      return total * 100; // Convertir a centavos, ya que Stripe maneja los montos en centavos
+      return total * 100; // Stripe maneja los montos en centavos
     }
   </script>
-
 </body>
 </html>
